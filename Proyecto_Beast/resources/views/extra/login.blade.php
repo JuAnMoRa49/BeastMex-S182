@@ -1,4 +1,4 @@
-@extends('Layouts.plantilla_login')
+@extends('layouts.plantilla_login')
 
 @section('title', 'Login')
 
@@ -21,7 +21,7 @@
                 <input type="password" name="password" required class="form-control" id="password" placeholder="Introduce tu contraseña">
             </div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary" href="extra/perfil">Login</button>
 
         </form>
 

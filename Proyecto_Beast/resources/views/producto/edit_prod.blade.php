@@ -1,19 +1,19 @@
 @extends('layouts.plantilla_general')
 
-@section('title', 'Registro')
+@section('title', 'Edición Productos')
 
 @section('contenido')
 
-<h1 class="display-4 text-center mt-5 mb-5">Registro de producto</h1>
+<h1 class="display-4 text-center mt-5 mb-5">Edición de producto</h1>
 
 <div class="card text-center">
 
     <div class="card-header">
-        INTODUCE LOS DATOS DEL PRODUCTO
+        INTODUCE LOS NUEVOS DATOS DEL PRODUCTO
     </div>
 
     <div class="card-body">
-        <form action="/guardar_productos" method="GET">
+        <form action="/actu_prod" method="GET">
             @csrf
 
             <div class="mb-3">
@@ -69,7 +69,7 @@
 
             <div class="d-grid gap-2">
                 <button class="btn btn-primary btn-lg" type="submit">
-                    Guardar
+                    Actualizar
                 </button>
             </div>
 
