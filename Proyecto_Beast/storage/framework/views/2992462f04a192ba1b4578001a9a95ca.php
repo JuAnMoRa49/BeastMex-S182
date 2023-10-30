@@ -7,7 +7,7 @@
 <div class="card text-center">
 
     <div class="card-body">
-        <form action="/consulta_producto_especifico" method="GET">
+        <form action="/cons_prod_espe" method="GET">
             <?php echo csrf_field(); ?>
         
         <div class="mb-3">
@@ -37,6 +37,7 @@
                                 <th>Precio de Venta</th>
                                 <th>Fecha</th>
                                 <th>Foto</th>
+                                <th>Opciones</th>
                             </tr>
                             <tr>
                                 <td>Mouse</td>
@@ -47,10 +48,16 @@
                                 <td>450</td>
                                 <td>20/10/2017</td>
                                 <td>Img</td>
+                                <td>
+                                    <a href="/edit_prod" class="btn btn-warning">Editar</a>
+                                    <a href="/ocul_prod" class="btn btn-secondary">Ocultar</a>
+                                    <a href="/most_prod" class="btn btn-success">Mostrar</a>
+                                </td>
                             </tr>
                     </table>
                 </div>
             </div>
+</div>
 
 
  <?php $__env->stopSection(); ?>

@@ -33,12 +33,19 @@
                                 <th>Empresa</th>
                                 <th>Telefono</th>
                                 <th>Correo</th>
+                                <th>Opciones</th>
                             </tr>
                             <tr>
                                 <td>Jose Eduardo</td>
                                 <td>Lenovo</td>
                                 <td>4425679064</td>
                                 <td>jose.eduardo@lenovo.com</td>
+                                <td>
+                                    <a href="/edit_prov" class="btn btn-warning">Editar</a>
+                                    <a href="/soli_prov" class="btn btn-success">Solicitar</a>
+                                    <a href="/dele_prov" class="btn btn-danger">Eliminar</a>
+
+                                </td>
                             </tr>
                     </table>
                 </div>

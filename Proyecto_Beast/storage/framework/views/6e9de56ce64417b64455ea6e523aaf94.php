@@ -19,7 +19,6 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/regi_prod">Registrar</a></li>
-            <li><a class="dropdown-item" href="/edit_prod">Editar</a></li>
             <li><a class="dropdown-item" href="/cons_prod">Consultar</a></li>
           </ul>
         </li>
@@ -30,7 +29,6 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/regi_prov">Registrar</a></li>
-            <li><a class="dropdown-item" href="/edit_prov">Editar</a></li>
             <li><a class="dropdown-item" href="/cons_prov">Consultar</a></li>
           </ul>
         </li>
@@ -41,10 +39,28 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/regi_usua">Registrar</a></li>
-            <li><a class="dropdown-item" href="/edit_usua">Editar</a></li>
             <li><a class="dropdown-item" href="/cons_usua">Consultar</a></li>
           </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Compras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/regi_comp">Registrar</a></li>
+            <li><a class="dropdown-item" href="/cons_comp">Consultar</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ventas
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/regi_vent">Registrar</a></li>
+            <li><a class="dropdown-item" href="/cons_vent">Consultar</a></li>
+          </ul>
 
       </div>
     </div>
