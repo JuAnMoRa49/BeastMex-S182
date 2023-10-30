@@ -24,7 +24,7 @@ class beastController extends Controller
     }
 
     public function metodoGuardarProductos(validadorFormProductos $request){
-        return view('save_prod');
+        return view('producto/save_prod');
     }
 
     public function metodoConsultaProducto(){
@@ -32,7 +32,7 @@ class beastController extends Controller
     }
 
     public function metodoConsultaProductosEspecifico(){
-        return view('cons_prod_espe');
+        return view('producto/cons_prod_espe');
     }
 
     public function metodoEditarProducto(){
@@ -40,7 +40,7 @@ class beastController extends Controller
     }
 
     public function metodoActualizarProducto(){
-        return view('actu_prod');
+        return view('producto/actu_prod');
     }
 
     // Funciones para proveedores
@@ -49,7 +49,7 @@ class beastController extends Controller
     }
 
     public function metodoGuardarProveedor(){
-        return view('save_prov');
+        return view('proveedor/save_prov');
     }
 
     public function metodoConsultaProveedor(){
@@ -57,7 +57,7 @@ class beastController extends Controller
     }
 
     public function metodoConsultaProveedorEspecifico(){
-        return view('cons_prov_espe');
+        return view('proveedor/cons_prov_espe');
     }
 
     public function metodoEditarProveedor(){
@@ -65,35 +65,112 @@ class beastController extends Controller
     }
 
     public function metodoActualizarProveedor(){
-        return view('actu_prov');
+        return view('proveedor/actu_prov');
     }
 
     // Funciones para usuarios
     public function metodoRegistroUsuario(){
-        return view('regi_usua');
+        return view('usuario/regi_usua');
     }
 
     public function metodoGuardarUsuario(){
-        return view('save_usua');
+        return view('usuario/save_usua');
     }
 
     public function metodoConsultaUsuario(){
-        return view('cons_usua');
+        return view('usuario/cons_usua');
     }
     
     public function metodoConsultaUsuarioEspecifico(){
-        return view('cons_usua_espe');
+        return view('usuario/cons_usua_espe');
     }
 
     public function metodoEditarUsuario(){
-        return view('edit_usua');
+        return view('usuario/edit_usua');
     }
 
     public function metodoActualizarUsuario(){
-        return view('actu_usua');
+        return view('usuario/actu_usua');
     }
 
+    // Fuinciones para compras
+    public function metodoRegistroCompra()
+    {
+        return view('compras/regi_comp');
+    }
 
+    public function metodoGuardarCompra()
+    {
+        return view('compras/save_comp');
+    }
+
+    public function metodoConsultaCompra()
+    {
+        return view('compras/cons_comp');
+    }
+
+    public function metodoConsultaCompraEspecifico()
+    {
+        return view('compras/cons_comp_espe');
+    }
+
+    public function metodoEditarCompra()
+    {
+        return view('compras/edit_comp');
+    }
+
+    public function metodoActualizarCompra()
+    {
+        return view('compras/actu_comp');
+    }
+
+    // Funciones para ventas
+    public function metodoRegistroVenta()
+    {
+        return view('ventas/regi_vent');
+    }
+
+    public function metodoGuardarVenta()
+    {
+        return view('ventas/save_vent');
+    }
+
+    public function metodoCheckoutVenta()
+    {
+        return view('ventas/chec_vent');
+    }
+
+    public function metodoConsultaVenta()
+    {
+        return view('ventas/cons_vent');
+    }
+
+    public function metodoConsultaVentaEspecifico()
+    {
+        return view('ventas/cons_vent_espe');
+    }
+
+    // Funciones para reportes
+
+    public function metodoReporteVentas()
+    {
+        return view('reportes/repo_vent');
+    }
+
+    public function metodoReporteCompras()
+    {
+        return view('reportes/repo_comp');
+    }
+
+    public function metodoReporteGanancias()
+    {
+        return view('reportes/repo_gana');
+    }
+
+    // Funcion de prueba
+    public function metodoPrueba(){
+        return view('prueba');
+    }
 }
 
 
