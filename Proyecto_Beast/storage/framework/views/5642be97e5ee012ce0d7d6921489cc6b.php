@@ -28,6 +28,7 @@
                 <h3>Resultados de la búsqueda</h3>
                 <div class="table-responsive">
                     <table class="table table-striped">
+                        <thead class="table table-dark">
                             <tr>
                                 <th>Nombre</th>
                                 <th>Empresa</th>
@@ -35,6 +36,7 @@
                                 <th>Correo</th>
                                 <th>Opciones</th>
                             </tr>
+                        </thead>
                             <tr>
                                 <td>Jose Eduardo</td>
                                 <td>Lenovo</td>

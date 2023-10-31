@@ -32,9 +32,13 @@
 
             <div class="mb-3">
                 <label class="form-label">Puesto:</label>
-                <input type="text" class="form-control" name="txtPuesto_Usuario" placeholder="Introduce el Puesto del Usuario"
-                    value="{{ old('txtPuesto_Usuario') }}">
-                <p class="text-danger fst-italic">{{ $errors->first('txtPuesto_Usuario') }}</p>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Abre para seleccionar rol</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Compra</option>
+                    <option value="3">Venta</option>
+                    <option value="4">Almacen</option>
+                </select>
             </div>
 
             <div class="mb-3">

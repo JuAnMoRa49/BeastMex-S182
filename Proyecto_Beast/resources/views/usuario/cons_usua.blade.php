@@ -26,31 +26,33 @@
         </form>
     </div>
 
-            <div class="card-body mt-3">
-                <h3>Resultados de la búsqueda</h3>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Puesto</th>
-                                <th>Contraseña</th>
-                                <th>Opciones</th>
-                            </tr>
-                            <tr>
-                                <th>Juan Alberto Catillo Garcia</th>
-                                <th>juanalberto@beast.com</th>
-                                <th>Administrador</th>
-                                <th>*********</th>
-                                <td>
-                                    <a href="/edit_usua" class="btn btn-warning">Editar</a>
-                                    <a href="/elim_usua" class="btn btn-danger">Eliminar</a>
-                                    <a href="/most_cont" class="btn btn-success">Mostrar</a>
-                                </td>
-                            </tr>
-                    </table>
-                </div>
-            </div>
+    <div class="card-body mt-3">
+        <h3>Resultados de la búsqueda</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table table-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Puesto</th>
+                        <th>Contraseña</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <th>Juan Alberto Catillo Garcia</th>
+                        <th>juanalberto@beast.com</th>
+                        <th>Administrador</th>
+                        <th>*********</th>
+                        <td>
+                            <a href="/edit_usua" class="btn btn-warning">Editar</a>
+                            <a href="/elim_usua" class="btn btn-danger">Eliminar</a>
+                            <a href="/most_cont" class="btn btn-success">Mostrar</a>
+                        </td>
+                    </tr>
+            </table>
+        </div>
+    </div>
 </div>
 
 @endsection

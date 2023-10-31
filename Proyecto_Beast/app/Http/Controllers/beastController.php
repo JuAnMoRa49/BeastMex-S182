@@ -130,9 +130,9 @@ class beastController extends Controller
         return view('ventas/regi_vent');
     }
 
-    public function metodoGuardarVenta()
+    public function metodoCarritoVenta()
     {
-        return view('ventas/save_vent');
+        return view('ventas/carr_vent');
     }
 
     public function metodoCheckoutVenta()
@@ -152,17 +152,17 @@ class beastController extends Controller
 
     // Funciones para reportes
 
-    public function metodoReporteVentas()
+    public function metodoReporteVenta()
     {
         return view('reportes/repo_vent');
     }
 
-    public function metodoReporteCompras()
+    public function metodoReporteCompra()
     {
         return view('reportes/repo_comp');
     }
 
-    public function metodoReporteGanancias()
+    public function metodoReporteGanancia()
     {
         return view('reportes/repo_gana');
     }

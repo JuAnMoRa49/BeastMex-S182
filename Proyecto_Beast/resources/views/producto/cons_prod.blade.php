@@ -30,6 +30,7 @@
                 <h3>Resultados de la búsqueda</h3>
                 <div class="table-responsive">
                     <table class="table table-striped">
+                        <thead class="table table-dark">
                             <tr>
                                 <th>Producto</th>
                                 <th>No. Serie</th>
@@ -41,6 +42,7 @@
                                 <th>Foto</th>
                                 <th>Opciones</th>
                             </tr>
+                        </thead>
                             <tr>
                                 <td>Mouse</td>
                                 <td>1234567890</td>

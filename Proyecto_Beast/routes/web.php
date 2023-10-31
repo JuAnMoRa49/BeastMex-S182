@@ -54,7 +54,7 @@ Route::get('/actu_comp', [beastController::class, 'metodoActualizarCompra'])->na
 
 // Rutas para ventas
 Route::get('/regi_vent', [beastController::class, 'metodoRegistroVenta'])->name('apodoRegistroVenta');
-Route::get('/save_vent', [beastController::class, 'metodoGuardarVenta'])->name('apodoGuardarVenta');
+Route::get('/carr_vent', [beastController::class, 'metodoCarritoVenta'])->name('apodoCarritoVenta');
 Route::get('/chec_vent', [beastController::class, 'metodoCheckoutVenta'])->name('apodoCheckoutVenta');
 Route::get('/cons_vent', [beastController::class, 'metodoConsultaVenta'])->name('apodoConsultaVenta');
 Route::get('/cons_vent_espe', [beastController::class, 'metodoConsultaVentaEspecifico'])->name('apodoConsultaVentaEspecifico');
