@@ -1,15 +1,15 @@
 @extends('layouts.plantilla_general')
 
-@section('title', 'Editar Usuarios')
+@section('title', 'Registro Usuarios')
 
 @section('contenido')
 
-<h1 class="display-4 text-center mt-5 mb-5">Edición de Usuarios</h1>
+<h1 class="display-4 text-center mt-5 mb-5">Registro de Usuarios</h1>
 
 <div class="card text-center">
 
     <div class="card-header">
-        INTODUCE LOS NUEVOS DATOS DEL USUARIO
+        INTODUCE LOS DATOS DEL USUARIO
     </div>
 
     <div class="card-body">
@@ -32,9 +32,13 @@
 
             <div class="mb-3">
                 <label class="form-label">Puesto:</label>
-                <input type="text" class="form-control" name="txtPuesto_Usuario" placeholder="Introduce el Puesto del Usuario"
-                    value="{{ old('txtPuesto_Usuario') }}">
-                <p class="text-danger fst-italic">{{ $errors->first('txtPuesto_Usuario') }}</p>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Abre para seleccionar rol</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Compra</option>
+                    <option value="3">Venta</option>
+                    <option value="4">Almacen</option>
+                </select>
             </div>
 
             <div class="mb-3">
@@ -46,7 +50,7 @@
 
             <div class="d-grid gap-2">
                 <button class="btn btn-primary btn-lg" type="submit">
-                    Actualizar
+                    Guardar
                 </button>
             </div>
 

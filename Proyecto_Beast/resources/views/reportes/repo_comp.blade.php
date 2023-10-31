@@ -7,7 +7,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h1 style="text-align: center;">Consulta de venta</h1>
+            <h1 style="text-align: center;">Consulta de Compra</h1>
         </div>
         <div class="card-body">
             <div class="row">
@@ -43,12 +43,12 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Resultados del Reporte de Venta</h2>
+                    <h2>Resultados del Reporte de Compra</h2>
                 </div>
               
                 <div class="col-md-12 text-center">
                     <!-- Imagen "grafica.png" debajo del título -->
-                    <img src="https:\\images.edrawmax.com\images\knowledge\line-graph-1-what-is.jpg" alt="Gráfica de ejemplo" class="img-center" />
+                    <img src="https://www.plandemejora.com/wp-content/uploads/grafica-de-lineas-online.png" alt="Gráfica de ejemplo" class="img-center" />
                 </div>
             </div>
         </div>

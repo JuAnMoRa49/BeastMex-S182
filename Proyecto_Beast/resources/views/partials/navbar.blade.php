@@ -61,6 +61,35 @@
             <li><a class="dropdown-item" href="/regi_vent">Registrar</a></li>
             <li><a class="dropdown-item" href="/cons_vent">Consultar</a></li>
           </ul>
+        </li>
+
+        <li class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Reportes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/repo_comp">Compra</a></li>
+            <li><a class="dropdown-item" href="/repo_vent">Venta</a></li>
+            <li><a class="dropdown-item" href="/repo_gana">Ganancias</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Extras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/carr_vent">Carrito de Venta</a></li>
+            <li><a class="dropdown-item" href="/carr_comp">Carrito de Compra</a></li>
+
+          </ul>
+
+        <li class="nav-item">
+          <a class="nav-link active {{request()->routeIs('inicio') ? 'text-danger' : '' }}" aria-current="page" href="/" {>
+              Salir
+          </a>
+        </li>
+
 
       </div>
     </div>
