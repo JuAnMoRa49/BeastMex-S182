@@ -6,6 +6,12 @@
 
 <h1 class="display-4 text-center mt-5 mb-5">Consulta de Usuarios</h1>
 
+@if(session()->has('confirmacion_cons_usua'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_cons_usua') }}','success')</script>
+
+@endif
+
 <div class="card text-center">
 
     <div class="card-body">
@@ -16,6 +22,7 @@
             <label class="form-label">Nombre o Puesto:</label>
             <input type="text" class="form-control" name="txtConsulta_Usuario" placeholder="Introduce el Nombre o Puesto del Producto"
                 value="{{ old('txtConsulta_Usuario') }}">
+                <p class="text-danger fst-italic">{{ $errors->first('txtConsulta_Usuario') }}</p>
         </div>
 
         <div class="d-grid gap-2">

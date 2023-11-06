@@ -7,14 +7,25 @@
 <div class="container">
     <h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Consulta de Ventas</h1>
 
+    @if(session()->has('confirmacion_cons_vent'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_cons_vent') }}','success')</script>
+
+    @endif
+
     <div class="card">
         <div class="card-body">
+            <form method="GET" action="/cons_vent_espe">
+                    @csrf
 
-            <div class="mb-3">
-                <label class="form-label">No. Venta o Fecha:</label>
-                <input type="text" class="form-control" name="txtConsulta_Venta" placeholder="Introduce el No. de Venta o la Fecha de venta dd/mm/aaaa"
-                    value="{{ old('txtConsulta_Venta') }}">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">No. Venta o Fecha:</label>
+                    <input type="text" class="form-control" name="txtConsulta_Venta" placeholder="Introduce el No. de Venta o la Fecha de venta dd/mm/aaaa"
+                        value="{{ old('txtConsulta_Venta') }}">
+                    <p class="text-danger fst-italic">{{ $errors->first('txtConsulta_Venta') }}</p>
+                    <button type="submit" class="btn btn-primary mt-2">Buscar</button>
+                </div>
+            </form>
 
             <div class="card-body mt-3">
                 <h3 style="text-align: center; margin-bottom: 20px;">Resultados de la búsqueda</h3>

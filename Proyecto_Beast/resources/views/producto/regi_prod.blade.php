@@ -8,6 +8,12 @@
 
 <div class="card text-center">
 
+    @if(session()->has('confirmacion_regi_prod'))
+
+        <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_regi_prod') }}','success')</script>
+
+    @endif
+
     <div class="card-header">
         INTODUCE LOS DATOS DEL PRODUCTO
     </div>
@@ -19,15 +25,15 @@
             <div class="mb-3">
                 <label class="form-label">Nombre:</label>
                 <input type="text" class="form-control" name="txtNombre_Producto" placeholder="Introduce el Nombre del Producto"
-                    value="{{ old('txtNombre_producto') }}">
-                <p class="text-danger fst-italic">{{ $errors->first('txtNombre_producto') }}</p>
+                    value="{{ old('txtNombre_Producto') }}">
+                <p class="text-danger fst-italic">{{ $errors->first('txtNombre_Producto') }}</p>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">No. Serie:</label>
-                <input type="text" class="form-control" name="txtNo.Serie_producto" placeholder="Introduce el No. Serie del Producto"
-                    value="{{ old('txtNo.Serie_producto') }}">
-                <p class="text-danger fst-italic">{{ $errors->first('txtNo.Serie_producto') }}</p>
+                <input type="number" class="form-control" name="txtNoSerie_producto" placeholder="Introduce el No. Serie del Producto"
+                    value="{{ old('txtNoSerie_producto') }}">
+                <p class="text-danger fst-italic">{{ $errors->first('txtNoSerie_producto') }}</p>
             </div>
 
             <div class="mb-3">
@@ -39,21 +45,21 @@
 
             <div class="mb-3">
                 <label class="form-label">Cantidad:</label>
-                <input type="text" class="form-control" name="txtCantidad_producto" placeholder="Introduce la Cantidad del Producto"
+                <input type="number" class="form-control" name="txtCantidad_producto" placeholder="Introduce la Cantidad del Producto"
                     value="{{ old('txtCantidad_producto') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtCantidad_producto') }}</p>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Costo:</label>
-                <input type="text" class="form-control" name="txtCosto_producto" placeholder="Introduce el Costo del Producto"
+                <input type="number" step="0.01" class="form-control" name="txtCosto_producto" placeholder="Introduce el Costo del Producto"
                     value="{{ old('txtCosto_producto') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtCosto_producto') }}</p>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Precio de Venta:</label>
-                <input type="text" class="form-control" name="txtPrecioVenta_producto" placeholder="Introduce el Precio de Venta del Producto"
+                <input type="number" step="0.01" class="form-control" name="txtPrecioVenta_producto" placeholder="Introduce el Precio de Venta del Producto"
                     value="{{ old('txtPrecioVenta_producto') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtPrecioVenta_producto') }}</p>
             </div>

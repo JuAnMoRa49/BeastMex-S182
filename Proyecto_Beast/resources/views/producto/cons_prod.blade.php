@@ -6,6 +6,13 @@
 
 <h1 class="display-4 text-center mt-5 mb-5">Consulta de producto</h1>
 
+@if(session()->has('confirmacion_cons_prod'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_cons_prod') }}','success')</script>
+
+@endif
+
+
 <div class="card text-center">
 
     <div class="card-body">
@@ -16,6 +23,7 @@
             <label class="form-label">Nombre o No. de Serie:</label>
             <input type="text" class="form-control" name="txtConsulta_Producto" placeholder="Introduce el Nombre o No. de Serie del Producto"
                 value="{{ old('txtConsulta_producto') }}">
+                <p class="text-danger fst-italic">{{ $errors->first('txtConsulta_Producto') }}</p>
         </div>
 
         <div class="d-grid gap-2">

@@ -6,6 +6,12 @@
 
 <h1 class="display-4 text-center mt-5 mb-5">Registro de Usuarios</h1>
 
+@if(session()->has('confirmacion_edit_usua'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_edit_usua') }}','success')</script>
+
+@endif
+
 <div class="card text-center">
 
     <div class="card-header">
@@ -13,7 +19,7 @@
     </div>
 
     <div class="card-body">
-        <form action="/save_usua" method="GET">
+        <form action="/actu_usua" method="GET">
             @csrf
 
             <div class="mb-3">

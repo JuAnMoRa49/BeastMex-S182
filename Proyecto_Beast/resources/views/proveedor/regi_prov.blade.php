@@ -6,6 +6,12 @@
 
 <h1 class="display-4 text-center mt-5 mb-5">Registro de proveedor</h1>
 
+@if(session()->has('confirmacion_regi_prov'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_regi_prov') }}','success')</script>
+
+@endif
+
 <div class="card text-center">
 
     <div class="card-header">
@@ -32,13 +38,13 @@
 
             <div class="mb-3">
                 <label class="form-label">Telefono:</label>
-                <input type="text" class="form-control" name="txtTelefono_Proveedor" placeholder="Introduce la Telefono del proveedor"
+                <input type="number" class="form-control" name="txtTelefono_Proveedor" placeholder="Introduce la Telefono del proveedor"
                     value="{{ old('txtTelefono_Proveedor') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtTelefono_Proveedor') }}</p>
 
             <div class="mb-3">
                 <label class="form-label">Correo:</label>
-                <input type="text" class="form-control" name="txtCorreo_Proveedor" placeholder="Introduce la Correo del proveedor"
+                <input type="email" class="form-control" name="txtCorreo_Proveedor" placeholder="Introduce la Correo del proveedor"
                     value="{{ old('txtCorreo_Proveedor') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtCorreo_Proveedor') }}</p>
 

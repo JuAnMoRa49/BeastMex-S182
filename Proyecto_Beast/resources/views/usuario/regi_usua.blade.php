@@ -6,6 +6,12 @@
 
 <h1 class="display-4 text-center mt-5 mb-5">Registro de Usuarios</h1>
 
+@if(session()->has('confirmacion_regi_usua'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_regi_usua') }}','success')</script>
+
+@endif
+
 <div class="card text-center">
 
     <div class="card-header">

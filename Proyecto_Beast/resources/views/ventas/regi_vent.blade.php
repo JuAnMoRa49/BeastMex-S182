@@ -3,13 +3,20 @@
 @section('title', 'Registro Venta')
 
 @section('contenido')
+
+@if(session()->has('confirmacion_regi_vent'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_regi_vent') }}','success')</script>
+
+@endif
+
 <div class="container">
     <div class="card">
         <div class="card-header">
             <h1 style="text-align: center;">Registro de Venta</h1>
         </div>
         <div class="card-body">
-            <form method="GET" action="/save_vent">
+            <form method="GET" action="/chec_vent">
                 @csrf
 
                 <div class="mb-3">
@@ -23,8 +30,8 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Buscar producto" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+                    <input type="text" name='producto' class="form-control" placeholder="Buscar producto" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="sumit" id="button-addon2">Buscar</button>
                 </div>
 
                 <div class="card-body mt-3">

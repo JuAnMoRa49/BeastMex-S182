@@ -6,15 +6,22 @@
 
     <h1 class="display-4 text-center mt-5 mb-5">Consulta de Compras</h1>
 
+    @if(session()->has('confirmacion_cons_comp'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_cons_comp') }}','success')</script>
+
+    @endif
+
     <div class="card text-center">
 
         <div class="card-body">
-            <form method="GET" action="/cons_comp">
+            <form method="GET" action="/cons_comp_espe">
                 @csrf
 
                 <div class="mb-3">
                     <label for="search_id" class="form-label">Buscar por ID de Compra</label>
-                    <input type="text" class="form-control" name="search_id" id="search_id" value="{{ request('search_id') }}">
+                    <input type="numeric" class="form-control" name="search_id" id="search_id" value="{{ request('search_id') }}">
+                    <p class="text-danger fst-italic">{{ $errors->first('search_id') }}</p>
                     <button type="submit" class="btn btn-primary mt-2">Buscar</button>
                 </div>
             </form>

@@ -6,6 +6,12 @@
 
 <h1 class="display-4 text-center mt-5 mb-5">Consulta de Proveedor</h1>
 
+@if(session()->has('confirmacion_cons_prov'))
+
+    <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_cons_prov') }}','success')</script>
+
+@endif
+
 <div class="card text-center">
 
     <div class="card-body">
@@ -16,6 +22,7 @@
             <label class="form-label">Nombre o Empresa</label>
             <input type="text" class="form-control" name="txtConsultaProveedor" placeholder="Introduce el Nombre o Empresa del Proveedor"
                 value="{{ old('txtConsultaProveedor') }}">
+                <p class="text-danger fst-italic">{{ $errors->first('txtConsultaProveedor') }}</p>
         </div>
 
         <div class="d-grid gap-2">
