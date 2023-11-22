@@ -4,56 +4,53 @@
 
 @section('contenido')
 
-<h1 class="display-4 text-center mt-5 mb-5">Edición de proveedor</h1>
-
 @if(session()->has('confirmacion_edit_prov'))
 
     <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_edit_prov') }}','success')</script>
 
 @endif
 
-<div class="card text-center">
+<div class="contenedor">
 
-    <div class="card-header">
-        INTODUCE LOS NUEVOS DATOS DEL PROVEEDOR
-    </div>
+    <h1 class="title">Edición de proveedor</h1>
 
-    <div class="card-body">
+    <div class="form">
+
         <form action="/actu_prov" method="GET">
             @csrf
 
-            <div class="mb-3">
-                <label class="form-label">Nombre:</label>
-                <input type="text" class="form-control" name="txtNombre_Proveedor" placeholder="Introduce el Nombre del proveedor"
+            <div class="dato">
+                <label class="dato_txt">Nombre:</label>
+                <input class="dato_input" type="text" class="form-control" name="txtNombre_Proveedor" placeholder="Introduce el Nombre del proveedor"
                     value="{{ old('txtNombre_Proveedor') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtNombre_Proveedor') }}</p>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Empresa:</label>
-                <input type="text" class="form-control" name="txtEmpresa_Proveedor" placeholder="Introduce la Empresa del proveedor"
+            <div class="dato">
+                <label class="dato_txt">Empresa:</label>
+                <input class="dato_input" type="text" class="form-control" name="txtEmpresa_Proveedor" placeholder="Introduce la Empresa del proveedor"
                     value="{{ old('txtEmpresa_Proveedor') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtEmpresa_Proveedor') }}</p>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Telefono:</label>
-                <input type="numeric" class="form-control" name="txtTelefono_Proveedor" placeholder="Introduce la Telefono del proveedor"
+            <div class="dato">
+                <label class="dato_txt">Telefono:</label>
+                <input class="dato_input" type="numeric" class="form-control" name="txtTelefono_Proveedor" placeholder="Introduce la Telefono del proveedor"
                     value="{{ old('txtTelefono_Proveedor') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtTelefono_Proveedor') }}</p>
 
-            <div class="mb-3">
-                <label class="form-label">Correo:</label>
-                <input type="email" class="form-control" name="txtCorreo_Proveedor" placeholder="Introduce la Correo del proveedor"
+            <div class="dato">
+                <label class="dato_txt">Correo:</label>
+                <input class="dato_input" type="email" class="form-control" name="txtCorreo_Proveedor" placeholder="Introduce la Correo del proveedor"
                     value="{{ old('txtCorreo_Proveedor') }}">
                 <p class="text-danger fst-italic">{{ $errors->first('txtCorreo_Proveedor') }}</p>
 
 
-            <div class="d-grid gap-2">
-                <button class="btn btn-primary btn-lg" type="submit">
-                    Actualizar
-                </button>
-            </div>
+                <div class="contenedor-boton">
+                    <button class="boton-guardar" type="submit">
+                        Actualizar
+                    </button>
+                </div>
 
         </form>
     </div>

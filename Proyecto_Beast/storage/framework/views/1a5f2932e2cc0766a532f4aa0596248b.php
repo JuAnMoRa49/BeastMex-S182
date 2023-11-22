@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="<?php echo e(asset('css/styles.css')); ?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
 </head>
 
 <body>
-    <h1 class="display-4 text-center mt-5 mb-5">LOGIN</h1>
+    <h1 class="titulo">LOGIN</h1>
     <div class="container">
         <?php echo $__env->yieldContent('contenido'); ?>
     </div>

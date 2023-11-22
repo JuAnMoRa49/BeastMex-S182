@@ -1,23 +1,25 @@
-<?php $__env->startSection('title', 'Consulta Productos'); ?>
+<?php $__env->startSection('title', 'Perfil'); ?>
 
 <?php $__env->startSection('contenido'); ?>
 
-<h1 class="display-4 text-center mt-5 mb-5">¡Bienvenido Juan Montoya!</h1>
+<div class="contenedor_perfil">
 
-<div class="card text-center">
-    <div class="profile-info">
-        <label>Nombre:</label>
-        <p>Juan Montoya</p>
+    <div class="foto">
+        <img src="<?php echo e(asset('images/35.jpg')); ?>" alt="Foto">
+    </div>
 
-        <label>Puesto:</label>
-        <p>Administrador</p>
+    <div class="datos">
+        <label class="label">Nombre:</label>
+        <p class="p">Juan Montoya</p>
 
-        <label>Email:</label>
-        <p>juan@beast.com</p>
+        <label class="label">Puesto:</label>
+        <p class="p">Administrador</p>
 
-        <label>Contraseña:</label>
-        <p>************</p>
+        <label class="label">Email:</label>
+        <p class="p">juan@beast.com</p>
 
+        <label class="label">Contraseña:</label>
+        <p class="p">************</p>
     </div>
 </div>
 

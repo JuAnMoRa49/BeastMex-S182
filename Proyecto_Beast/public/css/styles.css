@@ -1,0 +1,271 @@
+:root {
+
+    --negro: #000000;
+    --oscuro: #1e1e1e;
+    --medio: #797979;
+    --claro: #e4e4e4;
+    --blanco: #ffffff;
+
+    --bordes:#3d3d3d;
+
+    --confirmar-claro: #77ed77;
+    --confirmar-oscuro: #1e961e;
+
+    --buscar-claro: #74d8ee;
+    --buscar-oscuro: #208a94;
+
+    --editar-claro: #5c46e8;
+    --editar-oscuro: #3420b6;
+
+    --eliminar-claro: #d44646bf;
+    --eliminar-oscuro: #a72727bf;
+
+
+}
+
+.body{
+    background-color: var(--blanco);
+}
+
+.navbar {
+    background-color: var(--medio);
+    color: var(--claro);
+}
+
+/* Inicio Estilos de perfil */
+.contenedor_perfil {
+    background-color: var(--claro);
+    border: var(--bordes) 2px solid;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80rem;
+    margin: 5rem auto;
+    padding: 5rem;
+}
+
+.contenedor_perfil .foto {
+    width: 20rem;
+    height: 20rem;
+    background-color: var(--blanco);
+    border-radius: 50rem;
+}
+
+.contenedor_perfil .datos {
+    width: 40rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor_perfil .label {
+    font-size: 1.2em;
+}
+/* Final Estilos de perfil */
+
+
+/* Inicio de consultas */
+.contenedor_consulta {
+    background-color: var(--claro);
+    border: var(--bordes) 2px solid;
+    text-align: center;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 80rem;
+    margin: 1rem auto;
+}
+
+.consulta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.form_consulta {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+/* Final de consultas */
+
+/* Inicio tablas de consulta */
+
+.tabla {
+    background-color: var(--blanco);
+    border-radius: 1rem;
+}
+
+.tabla-top {
+    background-color: var(--oscuro);
+    border: var(--oscuro);
+    color: var(--claro);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+.top_left {
+    border-top-left-radius: 0.8rem;
+}
+
+.top_right {
+    border-top-right-radius: 0.8rem;
+}
+
+.resultado_consulta {
+    padding: 2rem auto;
+}
+
+/* Final tablas de consulta */
+
+.contenedor {
+    background-color: var(--claro);
+    border: var(--bordes) 2px solid;
+    text-align: center;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    margin: 1rem auto;
+}
+
+.contenedor_grande {
+    width: 95%;
+    border-radius: 1rem;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 3rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-weight: 900;
+    font-size: 2rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+
+/* Inicio de formularios */
+.form {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border: var(--bordes) 2px solid;
+    border-radius: 1rem;
+    background-color: var(--blanco);
+    text-transform: capitalize;
+
+}
+
+.dato {
+    display: flex;
+    flex-direction: column;
+    text-transform: inherit;
+}
+
+.dato_txt {
+    font-size: 1.2rem;
+}
+
+.dato_input {
+    border: var(--bordes) 2px solid;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+/* Final de formularios */
+
+/* Inicio de Botones */
+
+.boton-guardar {
+    background-color: var(--confirmar-oscuro);
+    color: var(--claro);
+    padding: 0.5rem 1rem;
+    border: var(--bordes) 2px solid;
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+.boton-guardar:hover {
+    background-color: var(--confirmar-claro);
+    color: var(--oscuro);
+}
+
+
+.boton-buscar {
+    background-color: var(--buscar-oscuro);
+    color: var(--claro);
+    padding: 0.5rem 1rem;
+    border: var(--bordes) 2px solid;
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+.boton-buscar:hover {
+    background-color: var(--buscar-claro);
+    color: var(--oscuro);
+}
+
+.boton-editar {
+    background-color: var(--editar-oscuro);
+    color: var(--claro);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 100%;
+    text-decoration: none;
+}
+
+.boton-editar:hover {
+    background-color: var(--editar-claro);
+    color: var(--oscuro);
+    text-decoration: none;
+}
+
+.boton-ocultar {
+    background-color: var(--claro);
+    color: var(--oscuro);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 100%;
+    text-decoration: none;
+}
+
+.boton-ocultar:hover {
+    background-color: var(--medio);
+    color: var(--claro);
+    text-decoration: none;
+}
+
+.boton-mostrar {
+    background-color: var(--confirmar-oscuro);
+    color: var(--claro);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 100%;
+    text-decoration: none;
+}
+
+.boton-mostrar:hover {
+    background-color: var(--confirmar-claro);
+    color: var(--oscuro);
+    text-decoration: none;
+
+}
+
+
+/* Final de Botones */
+
+
+.test {
+    background-color: red;
+    margin: 10rem;
+    padding: 10rem;
+}
