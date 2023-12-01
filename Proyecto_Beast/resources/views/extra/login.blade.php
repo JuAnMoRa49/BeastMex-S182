@@ -4,7 +4,7 @@
 
 @section('contenido')
 
-<div class="card text-center">
+<div class="contenedor">
 
     <div class="card-body">
 

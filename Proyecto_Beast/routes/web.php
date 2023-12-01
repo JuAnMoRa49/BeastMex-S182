@@ -16,12 +16,10 @@ use App\Http\Controllers\beastController;
 
 
 // Ruta para login
-
 Route::get('/', [beastController::class, 'metodoLogin'])->name('login');
 Route::get('/perfil', [beastController::class, 'metodoPerfil'])->name('perfil');
 
 // Rutas para productos
-
 Route::get('/regi_prod', [beastController::class, 'metodoRegistroProducto'])->name('apodoRegistroProductos');
 Route::get('/save_prod', [beastController::class, 'metodoGuardarProducto'])->name('apodoGuardarProductos');
 Route::get('/cons_prod', [beastController::class, 'metodoConsultaProducto'])->name('apodoConsultaProductos');
@@ -30,7 +28,6 @@ Route::get('/edit_prod', [beastController::class, 'metodoEditarProducto'])->name
 Route::get('/actu_prod', [beastController::class, 'metodoActualizarProducto'])->name('apodoActualizarProducto');
 
 // Rutas para proveedores
-
 Route::get('/regi_prov', [beastController::class, 'metodoRegistroProveedor'])->name('apodoRegistroProveedor');
 Route::get('/save_prov', [beastController::class, 'metodoGuardarProveedor'])->name('apodoGuardarProveedor');
 Route::get('/cons_prov', [beastController::class, 'metodoConsultaProveedor'])->name('apodoConsultaProveedor');
@@ -39,11 +36,34 @@ Route::get('/edit_prov', [beastController::class, 'metodoEditarProveedor'])->nam
 Route::get('/actu_prov', [beastController::class, 'metodoActualizarProveedor'])->name('apodoActualizarProveedor');
 
 // Rutas para usuarios
+Route::get('/regi_usua', [beastController::class, 'metodoRegistroUsuario'])->name('apodoRegistroUsuario');
+Route::get('/save_usua', [beastController::class, 'metodoGuardarUsuario'])->name('apodoGuardarUsuario');
+Route::get('/cons_usua', [beastController::class, 'metodoConsultaUsuario'])->name('apodoConsultaUsuario');
+Route::get('/cons_usua_espe', [beastController::class, 'metodoConsultaUsuarioEspecifico'])->name('apodoConsultaUsuarioEspecifico');
+Route::get('/edit_usua', [beastController::class, 'metodoEditarUsuario'])->name('apodoEditarUsuario');
+Route::get('/actu_usua', [beastController::class, 'metodoActualizarUsuario'])->name('apodoActualizarUsuario');
+Route::get('/elim_usua', [beastController::class, 'metodoEliminarUsuario'])->name('apodoEliminarUsuario');
 
-Route::get('/regi_usua', [beastController::class, 'metodoRegistroCliente'])->name('apodoRegistroCliente');
-Route::get('/save_usua', [beastController::class, 'metodoGuardarCliente'])->name('apodoGuardarCliente');
-Route::get('/cons_usua', [beastController::class, 'metodoConsultaCliente'])->name('apodoConsultaCliente');
-Route::get('/cons_usua_espe', [beastController::class, 'metodoConsultaClienteEspecifico'])->name('apodoConsultaClienteEspecifico');
-Route::get('/edit_usua', [beastController::class, 'metodoEditarCliente'])->name('apodoEditarCliente');
-Route::get('/actu_usua', [beastController::class, 'metodoActualizarCliente'])->name('apodoActualizarCliente');
+// Rutas para compras
+Route::get('/regi_comp', [beastController::class, 'metodoRegistroCompra'])->name('apodoRegistroCompra');
+Route::get('/save_comp', [beastController::class, 'metodoGuardarCompra'])->name('apodoGuardarCompra');
+Route::get('/cons_comp', [beastController::class, 'metodoConsultaCompra'])->name('apodoConsultaCompra');
+Route::get('/cons_comp_espe', [beastController::class, 'metodoConsultaCompraEspecifico'])->name('apodoConsultaCompraEspecifico');
+Route::get('/edit_comp', [beastController::class, 'metodoEditarCompra'])->name('apodoEditarCompra');
+Route::get('/actu_comp', [beastController::class, 'metodoActualizarCompra'])->name('apodoActualizarCompra');
 
+// Rutas para ventas
+Route::get('/regi_vent', [beastController::class, 'metodoRegistroVenta'])->name('apodoRegistroVenta');
+Route::get('/carr_vent', [beastController::class, 'metodoCarritoVenta'])->name('apodoCarritoVenta');
+Route::get('/chec_vent', [beastController::class, 'metodoCheckoutVenta'])->name('apodoCheckoutVenta');
+Route::get('/cons_vent', [beastController::class, 'metodoConsultaVenta'])->name('apodoConsultaVenta');
+Route::get('/cons_vent_espe', [beastController::class, 'metodoConsultaVentaEspecifico'])->name('apodoConsultaVentaEspecifico');
+
+// Rutas para reportes
+Route::get('/repo_vent', [beastController::class, 'metodoReporteVenta'])->name('apodoReporteVenta');
+Route::get('/repo_comp', [beastController::class, 'metodoReporteCompra'])->name('apodoReporteCompra');
+Route::get('/repo_gana', [beastController::class, 'metodoReporteGanancia'])->name('apodoReporteGanancia');
+
+
+// Rutas de prueba
+Route::get('/prueba', [beastController::class, 'metodoPrueba'])->name('apodoPrueba');
