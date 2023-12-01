@@ -7,7 +7,7 @@
 <div class="contenedor_perfil">
 
     <div class="foto">
-        <img src="{{ asset('images/35.jpg') }}" alt="Foto">
+        <i class="user"></i>
     </div>
 
     <div class="datos">

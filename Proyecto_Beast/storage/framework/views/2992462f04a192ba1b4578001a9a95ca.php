@@ -84,9 +84,9 @@
                         <td>20/10/2017</td>
                         <td>Img</td>
                         <td>
-                            <a href="/edit_prod" class="boton-editar">Editar</a>
-                            <a href="/ocul_prod" class="boton-ocultar">Ocultar</a>
-                            <a href="/most_prod" class="boton-mostrar">Mostrar</a>
+                            <a href="/edit_prod" class="btn btn-warning">Editar</a>
+                            <a href="/ocul_prod" class="btn btn-success">Ocultar</a>
+                            <a href="/most_prod" class="btn btn-danger">Mostrar</a>
                         </td>
                     </tr>
                 </table>
