@@ -26,7 +26,7 @@ class beastController extends Controller
 {
 
     // Funciones para el login
-    public function metodoLogin(){
+   public function metodoLogin(){
         return view('extra/login');
     }
 
