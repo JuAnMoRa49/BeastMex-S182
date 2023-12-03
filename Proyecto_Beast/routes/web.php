@@ -67,3 +67,6 @@ Route::get('/repo_gana', [beastController::class, 'metodoReporteGanancia'])->nam
 
 // Rutas de prueba
 Route::get('/prueba', [beastController::class, 'metodoPrueba'])->name('apodoPrueba');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

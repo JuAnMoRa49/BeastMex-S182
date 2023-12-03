@@ -14,7 +14,7 @@
 
     <body class="body">
 
-    @include ('partials.navbar')
+    @include ('layouts.app')
 
     <div class="container">
         @yield('contenido')

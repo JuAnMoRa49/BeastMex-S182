@@ -87,7 +87,7 @@
                     </ul>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/" >
+                    <a class="nav-link" href="" >
                         Salir
                     </a>
                 </li>
