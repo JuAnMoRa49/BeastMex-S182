@@ -1,0 +1,4 @@
+[2023-12-03 21:04:55] local.ERROR: Cannot use App\Http\Controllers\beastController as beastController because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use App\\Http\\Controllers\\beastController as beastController because the name is already in use at C:\\laragon\\www\\BeastMex-S182\\Proyecto_Beast\\routes\\web.php:75)
+[stacktrace]
+#0 {main}
+"} 

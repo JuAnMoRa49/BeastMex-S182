@@ -5,9 +5,7 @@
 @section('contenido')
 
 @if(session()->has('confirmacion_regi_vent'))
-
     <script>Swal.fire('Buen Trabajo!','{{ session('confirmacion_regi_vent') }}','success')</script>
-
 @endif
 
 <div class="container">
@@ -16,7 +14,7 @@
             <h1 style="text-align: center;">Registro de Venta</h1>
         </div>
         <div class="card-body">
-            <form method="GET" action="/chec_vent">
+            <form method="POST" action="/chec_vent">
                 @csrf
 
                 <div class="mb-3">
@@ -30,42 +28,41 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" name='producto' class="form-control" placeholder="Buscar producto" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="sumit" id="button-addon2">Buscar</button>
+                    <input type="text" name='producto' id="buscar-producto" class="form-control" placeholder="Buscar producto" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="buscarProducto()">Buscar</button>
                 </div>
 
                 <div class="card-body mt-3">
                     <h3>Resultados de la búsqueda</h3>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Marca</th>
-                                    <th>Disponibles</th>
-                                    <th>Precio</th>
-                                    <th>Opciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>PC</td>
-                                    <td>PHP</td>
-                                    <td>9</td>
-                                    <td>$34,000</td>
-                                    <td>
-                                        <a href="/" class="btn btn-success">Añadir al carrito</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div id="resultados-busqueda">
+                        <!-- Aquí se mostrarán los resultados de la búsqueda -->
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary">Ir al carrito</button>
+                <button type="submit" class="btn btn-primary">Ir al carrito</button>
 
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    function buscarProducto() {
+        var inputProducto = $('#buscar-producto').val();
+
+        // Realiza la solicitud AJAX al servidor
+        $.ajax({
+            type: 'GET',
+            url: '/buscar-producto/' + inputProducto, // Ajusta la ruta según tu configuración de rutas
+            success: function (data) {
+                // Actualiza la sección de resultados con la respuesta del servidor
+                $('#resultados-busqueda').html(data);
+            },
+            error: function (error) {
+                console.error('Error en la solicitud AJAX:', error);
+            }
+        });
+    }
+</script>
+
 @endsection
