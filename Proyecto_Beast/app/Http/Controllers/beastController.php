@@ -268,6 +268,27 @@ class beastController extends Controller
     public function metodoPrueba(){
         return view('prueba');
     }
+
+    // public function metodoConsultaVentaEspecifico(Request $req)
+    // {
+    //     $validated = $req->validate([
+    //         'txtConsulta_Venta' => 'required|numeric',
+    //     ]);
+
+    //     $noVenta = $req->input('txtConsulta_Venta');
+
+    //     // Realizar la consulta en la base de datos para obtener la venta específica
+    //     $venta = DB::table('ventas')->where('no_venta', $noVenta)->first();
+
+    //     if ($venta) {
+    //         // Si se encuentra la venta, pasar los datos a la vista
+    //         return view('ventas.cons_vent_espe', ['venta' => $venta]);
+    //     } else {
+    //         // Si no se encuentra la venta, redirigir con un mensaje de error
+    //         return redirect('/cons_vent')->with('error_cons_vent', 'No se encontraron resultados para la venta especificada.');
+    //     }
+    // }
+
 }
 
 

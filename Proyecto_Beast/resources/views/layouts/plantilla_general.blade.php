@@ -14,11 +14,11 @@
 
     <body class="body">
 
-    @include ('layouts.app')
+        @include ('partials.navbar')
 
-    <div class="container">
-        @yield('contenido')
-    </div>
+        <div class="container">
+            @yield('contenido')
+        </div>
 
     </body>
     

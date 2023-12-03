@@ -55,7 +55,7 @@ Route::get('/actu_comp', [beastController::class, 'metodoActualizarCompra'])->na
 Route::match(['get', 'post'], '/regi_vent', [beastController::class, 'metodoRegistroVenta'])->name('apodoRegistroVenta');
 Route::get('/carr_vent', [beastController::class, 'metodoCarritoVenta'])->name('apodoCarritoVenta');
 Route::post('/chec_vent', [beastController::class, 'metodoCheckoutVenta'])->name('apodoCheckoutVenta');
-Route::get('/cons_vent_espe', [beastController::class, 'metodoConsultaVentaEspecifico'])->name('apodoConsultaVentaEspecifico');
+Route::get('/cons_vent', [beastController::class, 'metodoConsultaVenta'])->name('apodoConsultaVenta');
 
 // Rutas para reportes
 Route::get('/repo_vent', [beastController::class, 'metodoReporteVenta'])->name('apodoReporteVenta');
@@ -72,7 +72,26 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Ruta de buscar producto 
 
-use App\Http\Controllers\beastController; // Asegúrate de importar tu controlador aquí
+// use App\Http\Controllers\beastController; // Asegúrate de importar tu controlador aquí
 
 Route::get('/buscar_producto', [beastController::class, 'metodo_buscarProducto'])->name ('buscarProducto');
 
+
+
+//productos
+
+
+Route::get('/', [beastController::class, 'metodoLogin'])->name('login');
+Route::get('/perfil', [beastController::class, 'metodoPerfil'])->name('perfil');
+Route::resource('producto', ProductoController::class);
+Route::get('/lista_productos', [ProductoController::class, 'mostrarProductos'])->name('lista_productos');
+Route::delete('/eliminar-producto/{id}', [ProductoController::class, 'eliminarProducto'])->name('eliminar_producto');
+Route::put('/actualizar-producto/{id}', [ProductoController::class, 'actualizarProducto']);
+Route::get('/regi_prov', [ProveedorController::class, 'guardarProveedor']);
+Route::get('/obtener-detalles-producto/{id}', [ProductoController::class, 'obtenerDetallesProducto']);
+Route::put('/guardar-cambios-producto/{id}', [ProductoController::class, 'guardarCambios']);
+
+
+// PRUEBA
+
+Route::post('/productos', [beastController::CLASS,'metodoGuardarProducto'])->name('productos.store');

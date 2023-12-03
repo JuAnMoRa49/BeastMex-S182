@@ -21,8 +21,8 @@
                 @csrf
                 
                 <div class="form_consulta">
-                    <label class="dato_txt">Buscar Nombre:</label>
-                    <input class="dato_input" type="text" class="form-control" name="txtConsulta_Producto" placeholder="Introduce el Nombre del Producto"
+                    <label class="dato_txt">Buscar Nombre o No.Serie:</label>
+                    <input class="dato_input" type="text" class="form-control" name="txtConsulta_Producto" placeholder="Introduce el Nombre o No.Serie del Producto"
                         value="{{ old('txtConsulta_producto') }}">
                         <p class="text-danger fst-italic">{{ $errors->first('txtConsulta_Producto') }}</p>
                 </div>
@@ -34,24 +34,7 @@
                 </div>
 
             </form>
-
-            <form class="form" action="/cons_prod_espe" method="GET">
-                @csrf
-                
-                <div class="form_consulta">
-                    <label class="dato_txt">Buscar Serie:</label>
-                    <input class="dato_input" type="text" class="form-control" name="txtConsulta_Producto" placeholder="Introduce el numero de Serie del Producto"
-                        value="{{ old('txtConsulta_producto') }}">
-                        <p class="text-danger fst-italic">{{ $errors->first('txtConsulta_Producto') }}</p>
-                </div>
-
-                <div class="">
-                    <button class="boton-buscar" type="submit">
-                        Buscar
-                    </button>
-                </div>
-
-            </form>
+        
 
 
         </div>
@@ -76,21 +59,27 @@
                         <th class="top_right">Opciones</th>
                     </tr>
 
-                    <tr class="resultado_consulta">
-                        <td>Mouse</td>
-                        <td>1234567890</td>
-                        <td>Lenovo</td>
-                        <td>34</td>
-                        <td>250</td>
-                        <td>450</td>
-                        <td>20/10/2017</td>
-                        <td>Img</td>
-                        <td>
-                            <a href="/edit_prod" class="btn btn-warning">Editar</a>
-                            <a href="/ocul_prod" class="btn btn-success">Ocultar</a>
-                            <a href="/most_prod" class="btn btn-danger">Mostrar</a>
-                        </td>
-                    </tr>
+                    @foreach($productos as $producto)
+
+                        <tr class="resultado_consulta">
+                            <td>    
+                                <a href="/cons_prod_espe" class="btn btn-link">{{ $producto->nombre_producto }}</a>
+                            </td>
+                            <td>1234567890</td>
+                            <td>Lenovo</td>
+                            <td>34</td>
+                            <td>250</td>
+                            <td>450</td>
+                            <td>20/10/2017</td>
+                            <td>Img</td>
+                            <td>
+                                <a href="/edit_prod" class="btn btn-warning">Editar</a>
+                                <a href="/ocul_prod" class="btn btn-success">Ocultar</a>
+                                <a href="/most_prod" class="btn btn-danger">Mostrar</a>
+                            </td>
+                        </tr>
+
+                    @endforeach
                 </table>
 
             </div>
