@@ -1,4 +1,4 @@
-@extends('layouts.plantilla_general')
+@extends('layouts.app')
 
 @section('title','Consulta de Venta')
 
