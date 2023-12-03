@@ -6,7 +6,7 @@
 
 
 <div class="contenedor">
-    <h1 class="title">Registro de Usuarios</h1>
+    <h1 class="title">Registro de </h1>
 
     @if(session()->has('confirmacion_regi_usua'))
 
