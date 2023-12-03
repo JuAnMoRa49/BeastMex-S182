@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="dato">
-                    <label class="label">Marca:</label>
+                    <label class="dato_txt">Marca:</label>
                     <input class="dato_input" type="text" class="form-control" name="txtMarca_producto"
                            placeholder="Introduce la Marca del Producto" value="<?php echo e(old('txtMarca_producto')); ?>">
                     <p class="text-danger fst-italic"><?php echo e($errors->first('txtMarca_producto')); ?></p>
