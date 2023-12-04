@@ -52,8 +52,10 @@ class ProductoController extends Controller
     {
         // Lógica para eliminar el producto por ID
         DB::table('dpto_almacen')->where('id', $id)->delete();
-
+        
+    
         return response()->json(['message' => 'Producto eliminado correctamente']);
+
     }
 
     public function actualizarProducto(Request $request, $id)

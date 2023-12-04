@@ -17,20 +17,79 @@
 }
 
 body {
-    background-color: #ff0000;
     background-image: linear-gradient(to bottom, var(--fondo-top), var(--fondo-but));
-    height: 120dvh;
+    height: 200dvh;
 }
   
 
 .navbar {
-    background-color: var(--fondo-but);
-    color: var(--fondo-top);
+    background-color: #2196F3;
+    padding: 20px 0px;
+  }
+  
+  .navbar-brand {
+    color: white;
+    font-size: 24px;
+  }
+  
+  .navbar-nav {
+    float: right;
+  }
+  
+  .navbar-nav li {
+    margin-left: 20px;
+  }
+  
+  .dropdown-toggle {
+    background-color: #2196F3;
+    border-radius: 0px;
+    color: white;
+    padding: 10px;
+  }
+  
+  .dropdown-menu {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  .dropdown-menu a {
+    padding: 10px;
+  }
+
+  .nav-link {
+    color: white;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #2196F3;
+  }
+
+  /* Estilos para la tabla de productos */
+#tabla-productos {
+    width: 100%;
+    overflow-x: auto; /* Agrega una barra de desplazamiento horizontal si es necesario */
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
 }
 
-/* .nav-item {
-    color: var(--blanco);
-} */
+/* Estilos para las celdas de la tabla */
+#tabla-productos th,
+#tabla-productos td {
+    white-space: nowrap; /* Evita el desbordamiento de texto en celdas */
+}
+
+
+
+/* Ajusta los márgenes de la tabla */
+.form {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border: var(--bordes) 2px solid;
+    border-radius: 1rem;
+    background-color: var(--blanco);
+    text-transform: capitalize;
+    overflow: auto; /* Agrega una barra de desplazamiento si es necesario */
+}
+
 
 /* Inicio Estilos de perfil */
 .contenedor_perfil {

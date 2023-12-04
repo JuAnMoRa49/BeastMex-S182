@@ -10,11 +10,13 @@
         <title>@yield('title')</title>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @vite(['resources/js/app.js'])
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
     </head>
 
     <body class="body">
 
-    @include ('layouts.app')
+    @include ('partials.navbar')
 
     <div class="container">
         @yield('contenido')

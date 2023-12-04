@@ -15,7 +15,7 @@
 
     <div class="form">
 
-        <form action="/save_prov" method="GET">
+        <form action="/save_prov" method="POST">
             @csrf
 
             <div class="dato">
