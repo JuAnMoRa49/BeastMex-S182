@@ -26,6 +26,13 @@
                         </div>
 
                         <div class="row mb-3">
+
+
+
+
+                        
+
+                        <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
@@ -60,6 +67,26 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+    <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+
+    <div class="col-md-6">
+        <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required>
+            <option value="Gerente">Gerente</option>
+            <option value="Coordinador Compras">Coordinador Compras</option>
+            <option value="Coordinador Ventas">Coordinador Ventas</option>
+            <option value="Auxiliar">Auxiliar</option>
+        </select>
+
+        @error('role')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

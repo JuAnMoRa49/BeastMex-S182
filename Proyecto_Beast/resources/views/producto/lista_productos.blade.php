@@ -323,6 +323,33 @@ function llenarFormularioEdicion(producto) {
     });
 });
 
+$('#tabla-productos').on('click', '.btn-eliminar', function () {
+    var productoId = $(this).data('id');
+
+    $.ajax({
+        url: '/eliminar-producto/' + productoId,
+        type: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (data) {
+            console.log(data);
+
+            // Elimina la fila de la tabla directamente
+            $('#tabla-productos').find(`[data-id="${productoId}"]`).closest('tr').remove();
+
+            // Muestra una notificación de éxito
+            mostrarNotificacion('Producto eliminado correctamente', 'success');
+        },
+        error: function (error) {
+            console.error('Error:', error);
+
+            // Show the error message using SweetAlert or console.log
+            mostrarNotificacion('Error: ' + error.responseText, 'error');
+        }
+    });
+});
+
     // Función para eliminar el producto por ID
     function eliminarProducto(productoId) {
     $.ajax({

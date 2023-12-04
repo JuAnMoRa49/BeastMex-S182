@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorFormProductos;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -18,8 +19,8 @@ use App\Http\Requests\validadorcons_prov;
 use App\Http\Requests\validadorcons_usua;
 use App\Http\Requests\validadorcons_comp;
 use App\Http\Requests\validadorcons_vent;
-
-
+use DB;
+use Carbon\Carbon;
 
 
 class beastController extends Controller
@@ -39,6 +40,12 @@ class beastController extends Controller
         return view('producto/regi_prod');
     }
 
+    public function showProfile()
+    {
+        $user = Auth::user();
+        return view('perfil', ['user' => $user]);
+    }
+
     public function metodoGuardarProducto(validadorregi_prod $req){
 
         $validated = $req->validate([
@@ -52,6 +59,10 @@ class beastController extends Controller
         ]);
       
         return redirect('/regi_prod')->with('confirmacion_regi_prod','Producto guardado');
+    }
+
+    public function metodoLogout(){
+        return view('extra/login');
     }
 
     public function metodoConsultaProducto(){
@@ -128,52 +139,13 @@ class beastController extends Controller
         return redirect('/edit_prov')->with('confirmacion_edit_prov','Provedor modificado');
     }
 
-    // Funciones para usuarios
-    public function metodoRegistroUsuario(){
-        return view('usuario/regi_usua');
-    }
-
-    public function metodoguardarUsuario(validadorregi_usua $req){
-
-        $validated = $req->validate([
-            'txtNombre_Usuario' => 'required',
-            'txtCorreo_Usuario' => 'required|email',
-            'txtContrasena_Usuario' => 'required',
-        ]);
-      
-        return redirect('/regi_usua')->with('confirmacion_regi_usua','Usuario guardado');
-    }
-
-    public function metodoConsultaUsuario(){
-        return view('usuario/cons_usua');
-    }
     
-    public function metodoConsultaUsuarioEspecifico(validadorcons_usua $req){
-        $validated = $req->validate([
-            'txtConsulta_Usuario' => 'required',
-        ]);
-      
-        return redirect('/cons_usua')->with('confirmacion_cons_usua','Los resultados de tu busqueda estan en la tabla');
-    }
-
-    public function metodoEditarUsuario(){
-        return view('usuario/edit_usua');
-    }
-
-    public function metodoActualizarUsuario(validadorregi_usua $req){
-        $validated = $req->validate([
-            'txtNombre_Usuario' => 'required',
-            'txtCorreo_Usuario' => 'required|email',
-            'txtContrasena_Usuario' => 'required',
-        ]);
-      
-        return redirect('/edit_usua')->with('confirmacion_edit_usua','Los datos se han modificado');
-    }
 
     // Fuinciones para compras
     public function metodoRegistroCompra()
     {
-        return view('compras/regi_comp');
+        $consultaCompras= DB::table('dpto_compras')->get();
+        return view('compras/regi_comp', compact('consultaCompras'));
     }
 
     public function metodoGuardarCompra(validadorregi_comp $req)
@@ -183,22 +155,37 @@ class beastController extends Controller
             'fecha' => 'required|date',
             'producto' => 'required',
         ]);
-      
+
+        DB::table('dpto_compras')->insert([
+            'nombre_cliente'=>$req->input('cliente'),
+            'fecha_compra'=>$req->input('fecha'),
+            'producto_compra'=>$req->input('producto'),
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now(),
+        ]);
+
         return redirect('/regi_comp')->with('confirmacion_regi_comp','La compra se ha guardado');
     }
-
     public function metodoConsultaCompra()
     {
         return view('compras/cons_comp');
     }
 
     public function metodoConsultaCompraEspecifico(validadorcons_comp $req)
-    {
+    { 
         $validated = $req->validate([
             'search_id' => 'required|numeric',
         ]);
-      
-        return redirect('/cons_comp')->with('confirmacion_cons_comp','Los resultados de tu busqueda estan en la tabla');
+
+        $searchId = $validated['search_id'];
+
+
+        $variable= DB::table('dpto_compras')->where('id', $searchId)->get();
+
+
+
+        return view('compras/cons_comp', compact('variable'));
+
     }
 
     public function metodoEditarCompra()
@@ -214,8 +201,61 @@ class beastController extends Controller
     // Funciones para ventas
     public function metodoRegistroVenta()
     {
-        return view('ventas/regi_vent');
+        $productos = \DB::table('dpto_almacen')->get(['id', 'nombre_producto', 'cantidad', 'precio_venta']);
+        return view('ventas/regi_vent', compact('productos'));
     }
+
+    public function guardarVenta(Request $request)
+    {
+        // Validar la entrada del formulario
+        $request->validate([
+            'cliente' => 'required|string|max:255',
+            'fecha' => 'required|date',
+            'producto' => 'required|exists:dpto_almacen,id',
+            'cantidadInput' => 'required|integer|min:1',
+            'totalVenta' => 'required|numeric',
+        ]);
+    
+        // Obtener los datos del formulario
+        $cliente = $request->input('cliente');
+        $fecha = $request->input('fecha');
+        $productoId = $request->input('producto');
+        $cantidad = $request->input('cantidadInput');
+        $precio = $request->input('totalVenta');
+    
+        // Obtener información del producto
+        $producto = \DB::table('dpto_almacen')->find($productoId);
+    
+        // Validar que hay suficiente cantidad disponible
+        if ($cantidad > $producto->cantidad) {
+            return redirect()->route('apodoRegistroVenta')->with('error', 'No hay suficiente cantidad disponible.');
+        }
+    
+        // Calcular el total de la venta
+        $totalVenta = $cantidad * $producto->precio_venta;
+    
+        // Guardar la venta en la base de datos
+        \DB::table('ticket_ventas')->insert([
+            'fecha' => $fecha,
+            'datos_cliente' => $cliente,
+            'productos' => $producto->nombre_producto,
+            'cantidad' => $cantidad,
+            'precio' => $totalVenta,
+            'total_venta' => $totalVenta, // Agrega esta línea
+        ]);
+    
+        // Actualizar la cantidad en el almacen
+        \DB::table('dpto_almacen')->where('id', $productoId)->decrement('cantidad', $cantidad);
+    
+        return redirect()->route('apodoRegistroVenta')->with('confirmacion_regi_vent', 'Venta registrada con éxito.');
+    }
+
+    public function mostrarTicketsVenta()
+    {
+        $tickets_ven = \DB::table('ticket_ventas')->get();
+        return view('ventas/tickets_ven', ['tickets_ven' => $tickets_ven]);
+    }
+    
 
     public function metodoCarritoVenta()
     {
@@ -240,11 +280,28 @@ class beastController extends Controller
 
     public function metodoConsultaVentaEspecifico(validadorcons_vent $req)
     {
-        $validated = $req->validate([
+        $req->validate([
             'txtConsulta_Venta' => 'required|numeric',
         ]);
-      
-        return redirect('/cons_vent')->with('confirmacion_cons_vent','Los resultados de tu busqueda estan en la tabla');
+    
+        // Reemplaza 'ventas' con el nombre real de tu tabla de ventas
+        $venta = DB::table('ventas')
+            ->where('id', $req->txtConsulta_Venta)
+            ->first();
+    
+        if ($venta) {
+            // Puedes ajustar esta lógica según la estructura de tu tabla
+            $resultados = [
+                'No. Venta' => $venta->id,
+                'Cliente' => $venta->cliente,
+                'Fecha' => $venta->fecha,
+                'Total' => $venta->total,
+            ];
+    
+            return view('ventas/cons_vent', ['resultados' => $resultados]);
+        } else {
+            return redirect('/cons_vent')->with('confirmacion_cons_vent_espe', 'No se encontraron resultados para la venta especificada.');
+        }
     }
 
     // Funciones para reportes
@@ -267,8 +324,38 @@ class beastController extends Controller
     // Funcion de prueba
     public function metodoPrueba(){
         return view('prueba');
+
     }
+
+    // En tu controlador
+    public function mostrarFormularioVenta()
+    {
+        //$productos = DB::table('dpto_almacen')->pluck('nombre_producto', 'id'); // Obtener datos de la tabla dpto_almacen
+        //return view('apodoRegistroVenta', compact('productos'));
+    }
+
+
+    // public function obtenerDetallesProducto($id)
+    // {
+    //     // Lógica para obtener detalles del producto según el ID
+    //     $producto = DB::table('dpto_almacen')->find($id);
+
+    //     if ($producto) {
+    //         // Si se encuentra el producto, devuelve los detalles en formato JSON
+    //         return response()->json(['success' => true, 'producto' => $producto]);
+    //     } else {
+    //         // Si no se encuentra el producto, devuelve un mensaje de error en formato JSON
+    //         return response()->json(['success' => false, 'mensaje' => 'Producto no encontrado']);
+    //     }
+    // }
+
+    
+
+
+
+
+
+
+
 }
-
-
 

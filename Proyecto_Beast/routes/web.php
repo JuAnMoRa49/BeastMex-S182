@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\beastController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Controller;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +23,15 @@ use App\Http\Controllers\ProductoController;
 // Ruta para login
 Route::get('/', [beastController::class, 'metodoLogin'])->name('login');
 Route::get('/perfil', [beastController::class, 'metodoPerfil'])->name('perfil');
+Route::resource('producto', ProductoController::class);
+Route::get('/lista_productos', [ProductoController::class, 'mostrarProductos'])->name('lista_productos');
+Route::delete('/eliminar-producto/{id}', [ProductoController::class, 'eliminarProducto'])->name('eliminar_producto');
+Route::put('/actualizar-producto/{id}', [ProductoController::class, 'actualizarProducto']);
+Route::get('/regi_prov', [ProveedorController::class, 'guardarProveedor']);
+Route::get('/obtener-detalles-producto/{id}', [ProductoController::class, 'obtenerDetallesProducto']);
+Route::put('/guardar-cambios-producto/{id}', [ProductoController::class, 'guardarCambios']);
+
+Route::post('/logout', [beastController::class, 'metodoLogout'])->name('logout');
 
 // Rutas para productos
 Route::get('/regi_prod', [beastController::class, 'metodoRegistroProducto'])->name('apodoRegistroProductos');
@@ -36,13 +50,16 @@ Route::get('/edit_prov', [beastController::class, 'metodoEditarProveedor'])->nam
 Route::get('/actu_prov', [beastController::class, 'metodoActualizarProveedor'])->name('apodoActualizarProveedor');
 
 // Rutas para usuarios
-Route::get('/regi_usua', [beastController::class, 'metodoRegistroUsuario'])->name('apodoRegistroUsuario');
-Route::post('/save_usua', [beastController::class, 'metodoGuardarUsuario'])->name('apodoGuardarUsuario');
-Route::get('/cons_usua', [beastController::class, 'metodoConsultaUsuario'])->name('apodoConsultaUsuario');
-Route::get('/cons_usua_espe', [beastController::class, 'metodoConsultaUsuarioEspecifico'])->name('apodoConsultaUsuarioEspecifico');
-Route::get('/edit_usua', [beastController::class, 'metodoEditarUsuario'])->name('apodoEditarUsuario');
-Route::get('/actu_usua', [beastController::class, 'metodoActualizarUsuario'])->name('apodoActualizarUsuario');
-Route::get('/elim_usua', [beastController::class, 'metodoEliminarUsuario'])->name('apodoEliminarUsuario');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+Route::get('/users', [UserController::class, 'mostrarUsuarios'])->name('users.index');
+Route::delete('/users/{id}', [UserController::class, 'eliminarUsuario'])->name('users.destroy');
+Route::patch('/users/{id}', [UserController::class, 'actualizarUsuario'])->name('users.update');
+
+Route::get('/usuarios', [UserController::class, 'showUsers'])->name('usuarios.index');
+Route::delete('/usuarios/{id}', [UserController::class, 'deleteUser'])->name('usuarios.delete');
+Route::get('/usuarios/{id}/editar', [UserController::class, 'editUser'])->name('usuarios.edit');
+Route::put('/usuarios/{id}', [UserController::class, 'updateUser'])->name('usuarios.update');
+
 
 // Rutas para compras
 Route::get('/regi_comp', [beastController::class, 'metodoRegistroCompra'])->name('apodoRegistroCompra');
@@ -53,10 +70,17 @@ Route::get('/edit_comp', [beastController::class, 'metodoEditarCompra'])->name('
 Route::get('/actu_comp', [beastController::class, 'metodoActualizarCompra'])->name('apodoActualizarCompra');
 
 // Rutas para ventas
-Route::match(['get', 'post'], '/regi_vent', [beastController::class, 'metodoRegistroVenta'])->name('apodoRegistroVenta');
+//Route::get(['get', 'post'], '/regi_vent', [beastController::class, 'metodoRegistroVenta'])->name('apodoRegistroVenta');
 Route::get('/carr_vent', [beastController::class, 'metodoCarritoVenta'])->name('apodoCarritoVenta');
 Route::post('/chec_vent', [beastController::class, 'metodoCheckoutVenta'])->name('apodoCheckoutVenta');
-Route::get('/cons_vent_espe', [beastController::class, 'metodoConsultaVentaEspecifico'])->name('apodoConsultaVentaEspecifico');
+Route::get('/cons_vent', [beastController::class, 'metodoConsultaVentaEspecifico'])->name('apodoConsultaVentaEspecifico');
+Route::get('/regi_vent', [beastController::class, 'metodoRegistroVenta'])->name('apodoRegistroVenta');
+Route::get('/obtener-detalles-producto/{id}',[beastController::class,'obtenerDetallesProducto'])->name('detalleProducto');
+Route::get('/regi_vent', [BeastController::class, 'metodoRegistroVenta'])->name('apodoRegistroVenta');
+Route::post('/guardar-venta', [BeastController::class, 'guardarVenta'])->name('guardarVenta');
+Route::get('/mostrar-tickets', [BeastController::class, 'mostrarTickets'])->name('mostrarTickets');
+Route::get('/mostrar-tickets-ven', [BeastController::class, 'mostrarTicketsVenta'])->name('mostrarTicketsVenta');
+
 
 // Rutas para reportes
 Route::get('/repo_vent', [beastController::class, 'metodoReporteVenta'])->name('apodoReporteVenta');
@@ -77,4 +101,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/buscar_producto', [beastController::class, 'metodo_buscarProducto'])->name ('buscarProducto');
 
+Route::get('/formulario-venta', [beastController::class, 'mostrarFormularioVenta']);
+
+
+
+
+
+
 // Rutas vista/producto
+
+
