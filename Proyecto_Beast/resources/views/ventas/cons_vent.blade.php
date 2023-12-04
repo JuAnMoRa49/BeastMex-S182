@@ -4,6 +4,7 @@
 
 @section('contenido')
 
+
 <div class="container">
     <h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Consulta de Ventas</h1>
 

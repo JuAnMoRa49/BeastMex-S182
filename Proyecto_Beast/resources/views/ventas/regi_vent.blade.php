@@ -28,15 +28,13 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" name='producto' id="buscar-producto" class="form-control" placeholder="Buscar producto" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="buscarProducto()">Buscar</button>
+                    <input type="text" name='producto' class="form-control" placeholder="Buscar producto por nombre" id="producto" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="buscarProducto">Buscar</button>
                 </div>
 
                 <div class="card-body mt-3">
                     <h3>Resultados de la búsqueda</h3>
-                    <div id="resultados-busqueda">
-                        <!-- Aquí se mostrarán los resultados de la búsqueda -->
-                    </div>
+                    <div id="resultadosBusqueda"></div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Ir al carrito</button>
@@ -46,23 +44,21 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    function buscarProducto() {
-        var inputProducto = $('#buscar-producto').val();
-
-        // Realiza la solicitud AJAX al servidor
-        $.ajax({
-            type: 'GET',
-            url: '/buscar-producto/' + inputProducto, // Ajusta la ruta según tu configuración de rutas
-            success: function (data) {
-                // Actualiza la sección de resultados con la respuesta del servidor
-                $('#resultados-busqueda').html(data);
-            },
-            error: function (error) {
-                console.error('Error en la solicitud AJAX:', error);
-            }
+    $(document).ready(function () {
+        $('#buscarProducto').click(function () {
+            let nombreProducto = $('#producto').val();
+            $.ajax({
+                type: 'GET',
+                url: '/buscar_producto',
+                data: { nombre: nombreProducto },
+                success: function (response) {
+                    $('#resultadosBusqueda').html(response);
+                }
+            });
         });
-    }
+    });
 </script>
 
 @endsection

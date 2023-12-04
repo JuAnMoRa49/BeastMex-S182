@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\beastController;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +73,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Ruta de buscar producto 
 
-use App\Http\Controllers\beastController; // Asegúrate de importar tu controlador aquí
+
 
 Route::get('/buscar_producto', [beastController::class, 'metodo_buscarProducto'])->name ('buscarProducto');
 
+// Rutas vista/producto
