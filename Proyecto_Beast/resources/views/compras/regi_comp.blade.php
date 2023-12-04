@@ -12,6 +12,8 @@
 
     @endif
 
+    
+
     <div class="card text-center">
         <div class="card-header">
             INTODUCE LOS DATOS DE LA COMPRA
@@ -37,36 +39,35 @@
                 </div>
 
                 <table class="table table-striped">
+
                     <thead class="table-dark">
                         <tr>
+                            <th>ID</th>
                             <th>Producto</th>
-                            <th>Marca</th>
-                            <th>Disponibles</th>
-                            <th>Precio</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Pc</td>
-                            <td>PhP</td>
-                            <td>9</td>
-                            <td>$120,000</td>
-                            <td><button type="button" class="btn btn-success">Añadir a solicitud</button></td>
-                        </tr>
-                        <tr>
-                            <td>Teclado</td>
-                            <td>PhP</td>
-                            <td>3</td>
-                            <td>$1,200</td>
-                            <td><button type="button" class="btn btn-success">Añadir a solicitud</button></td>
-                        </tr>
-                    </tbody>
+                    @foreach ($consultaCompras as $item)
+                        <tbody>
+                            
+                            <tr>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->producto_compra}}</td>
+                                <td>{{$item->nombre_cliente}}</td>
+                                <td>{{$item->fecha_compra}}</td>
+                                <td><button type="button" class="btn btn-success">Añadir a solicitud</button></td>
+                            </tr>
+                            
+                        </tbody>
+                    @endforeach
                 </table>
 
                 <button type="sumit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
     </div>
+    
 </div>
 @endsection

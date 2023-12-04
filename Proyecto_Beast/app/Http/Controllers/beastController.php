@@ -18,6 +18,8 @@ use App\Http\Requests\validadorcons_prov;
 use App\Http\Requests\validadorcons_usua;
 use App\Http\Requests\validadorcons_comp;
 use App\Http\Requests\validadorcons_vent;
+use DB;
+use Carbon\Carbon;
 
 
 
@@ -173,7 +175,8 @@ class beastController extends Controller
     // Fuinciones para compras
     public function metodoRegistroCompra()
     {
-        return view('compras/regi_comp');
+        $consultaCompras= DB::table('dpto_compras')->get();
+        return view('compras/regi_comp', compact('consultaCompras'));
     }
 
     public function metodoGuardarCompra(validadorregi_comp $req)
@@ -183,7 +186,15 @@ class beastController extends Controller
             'fecha' => 'required|date',
             'producto' => 'required',
         ]);
-      
+
+        DB::table('dpto_compras')->insert([
+            'nombre_cliente'=>$req->input('cliente'),
+            'fecha_compra'=>$req->input('fecha'),
+            'producto_compra'=>$req->input('producto'),
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now(),
+        ]);
+        
         return redirect('/regi_comp')->with('confirmacion_regi_comp','La compra se ha guardado');
     }
 
@@ -193,12 +204,20 @@ class beastController extends Controller
     }
 
     public function metodoConsultaCompraEspecifico(validadorcons_comp $req)
-    {
+    { 
         $validated = $req->validate([
             'search_id' => 'required|numeric',
         ]);
-      
-        return redirect('/cons_comp')->with('confirmacion_cons_comp','Los resultados de tu busqueda estan en la tabla');
+
+        $searchId = $validated['search_id'];
+
+        
+        $variable= DB::table('dpto_compras')->where('id', $searchId)->get();
+        
+
+        
+        return view('compras/cons_comp', compact('variable'));
+
     }
 
     public function metodoEditarCompra()
